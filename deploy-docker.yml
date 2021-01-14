@@ -14,14 +14,15 @@
       service:
         name: docker
         state: started
-        enabled: yes
+        restart: yes
+        
     - name: Install docker-py python module
       pip:
         name: docker-py
         state: present
     - name: Start the container
       docker_container:
-        name: hariapp
+        name: bhushanpost
         image: "bhushanpost/docker-jenkins-test:{{DOCKER_TAG}}"
         state: started
         published_ports:
